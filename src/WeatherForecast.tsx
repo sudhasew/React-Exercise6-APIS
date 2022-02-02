@@ -10,7 +10,7 @@ export function WeatherForecast() {
     axios
       .get("https://api.weather.gov/gridpoints/DTX/65,33/forecast")
       .then((data: any) => {
-        //console.log(data.data.properties.periods);
+        console.log(data.data.properties.periods[6]);
         setWeather(data.data.properties.periods);
       });
   }, []);
@@ -18,11 +18,14 @@ export function WeatherForecast() {
   return (
     <div>
       <h1>Weather Forecast</h1>
-      <ul>
-        {weather.map((data) => (
-          <li key={data.name}>
-            Name: {data.name} | Temperature: {data.temperature} | Icon:
-            {data.icon} | DetailedForecast: {data.detailedForecast}
+      <ul className="list-container">
+        {weather?.map((data) => (
+          <li key={data.number}>
+            {data.name} <br />
+            Temperature: {data.temperature} <br />
+            <img src={data.icon}></img>
+            <br />
+            {data.detailedForecast}
           </li>
         ))}
       </ul>

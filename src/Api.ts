@@ -1,6 +1,5 @@
 import axios from "axios";
 import { QuotesComplete } from "./QuotesComplete";
-import { Weather } from "./Weather";
 export function getAllQuotes() {
   return axios
     .get<QuotesComplete>(

@@ -11,13 +11,13 @@ export function Quotes() {
 
   return (
     <div>
-      <ul>
+      <ol>
         {quotes.map((person) => (
           <li>
             {person.text} {person.author}
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 }
