@@ -3,20 +3,18 @@ import { getAllQuotes } from "./Api";
 import { QuotesComplete } from "./QuotesComplete";
 
 export function Quotes() {
-  const [quote, setQuotes] = useState<QuotesComplete[]>([]);
+  const [quotes, setQuotes] = useState<QuotesComplete[]>([]);
 
   useEffect(() => {
-    getAllQuotes().then((data) => {
-      setQuotes(data);
-    });
+    getAllQuotes().then((data: any) => setQuotes(data));
   }, []);
 
   return (
     <div>
       <ul>
-        {quote.map((person) => (
+        {quotes.map((person) => (
           <li>
-            {person.author} {person.text}
+            {person.text} {person.author}
           </li>
         ))}
       </ul>
